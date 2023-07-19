@@ -44,8 +44,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
 //    Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
+    def coroutines_version = "1.7.2"
+    implementation "rg.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
 //    Lifecycle
     def lifecycle_version = "2.6.1"
@@ -70,5 +71,4 @@ dependencies {
 
 //    Room testing
     testImplementation "androidx.room:room-testing:$room_version"
-
 }
