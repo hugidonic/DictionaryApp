@@ -13,16 +13,14 @@ class Converters(
     @TypeConverter
     fun fromMeaningsJson(json: String): List<MeaningModel> {
         return parser.fromJson<ArrayList<MeaningModel>>(
-            json = json,
-            type = object : TypeToken<ArrayList<MeaningModel>>() {}.type
+            json = json, type = object : TypeToken<ArrayList<MeaningModel>>() {}.type
         ) ?: emptyList()
     }
 
     @TypeConverter
     fun toMeaningJson(meanings: List<MeaningModel>): String {
         return parser.toJson(
-            obj = meanings,
-            type = object : TypeToken<ArrayList<MeaningModel>>() {}.type
+            obj = meanings, type = object : TypeToken<ArrayList<MeaningModel>>() {}.type
         ) ?: "[]"
     }
 }
