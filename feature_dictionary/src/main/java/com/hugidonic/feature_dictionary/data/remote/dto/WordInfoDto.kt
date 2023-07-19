@@ -1,5 +1,6 @@
 package com.hugidonic.feature_dictionary.data.remote.dto
 
+import com.hugidonic.feature_dictionary.data.local.entities.WordInfoEntity
 import com.hugidonic.feature_dictionary.domain.models.WordInfoModel
 
 data class WordInfoDto(
@@ -11,6 +12,13 @@ data class WordInfoDto(
     val word: String
 ) {
     fun toWordInfoModel(): WordInfoModel = WordInfoModel(
+        meanings = meanings.map {dto -> dto.toMeaningModel()},
+        phonetic = phonetic,
+        sourceUrls = sourceUrls,
+        word = word,
+    )
+
+    fun toWordInfoEntity(): WordInfoEntity = WordInfoEntity(
         meanings = meanings.map {dto -> dto.toMeaningModel()},
         phonetic = phonetic,
         sourceUrls = sourceUrls,
