@@ -12,7 +12,7 @@ data class WordInfoEntity(
     val sourceUrls: List<String>,
     val word: String,
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int? = null,
 ) {
     fun toWordInfoModel(): WordInfoModel = WordInfoModel(
         meanings = meanings,
