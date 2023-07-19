@@ -2,8 +2,7 @@ package com.hugidonic.feature_dictionary.data.repository
 
 import com.hugidonic.core.util.Resource
 import com.hugidonic.feature_dictionary.data.local.WordInfoDao
-import com.hugidonic.feature_dictionary.data.local.entities.WordInfoEntity
-import com.hugidonic.feature_dictionary.data.remote.ApiService
+import com.hugidonic.feature_dictionary.data.remote.DictionaryApiService
 import com.hugidonic.feature_dictionary.domain.models.WordInfoModel
 import com.hugidonic.feature_dictionary.domain.repository.WordInfoRepository
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +11,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class WordInfoRepositoryImpl(
-    private val api: ApiService,
+    private val api: DictionaryApiService,
     private val dao: WordInfoDao
 ) : WordInfoRepository {
     override suspend fun getWordInfo(word: String): Flow<Resource<List<WordInfoModel>>> = flow {

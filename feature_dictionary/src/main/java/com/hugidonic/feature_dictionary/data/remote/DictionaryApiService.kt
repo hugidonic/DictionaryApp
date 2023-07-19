@@ -4,7 +4,7 @@ import com.hugidonic.feature_dictionary.data.remote.dto.WordInfoDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ApiService {
+interface DictionaryApiService {
 
     @GET("/api/v2/entries/en/{word}")
     fun getWordInfo(
