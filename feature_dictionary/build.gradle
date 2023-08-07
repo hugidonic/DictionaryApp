@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
@@ -8,6 +9,10 @@ plugins {
 android {
     namespace 'com.hugidonic.feature_dictionary'
     compileSdk 33
+
+    packagingOptions {
+        merge "core.properties"
+    }
 
     defaultConfig {
         minSdk 27
@@ -69,7 +74,7 @@ dependencies {
     def room_version = "2.5.2"
     implementation "androidx.room:room-runtime:$room_version"
     implementation 'androidx.room:room-ktx:2.5.2'
-    kapt "androidx.room:room-compiler:$room_version"
+    ksp "androidx.room:room-compiler:$room_version"
 
 //    Room testing
     testImplementation "androidx.room:room-testing:$room_version"
