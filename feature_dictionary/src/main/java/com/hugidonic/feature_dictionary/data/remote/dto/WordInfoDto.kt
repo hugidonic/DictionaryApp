@@ -14,14 +14,12 @@ data class WordInfoDto(
     fun toWordInfoModel(): WordInfoModel = WordInfoModel(
         meanings = meanings.map {dto -> dto.toMeaningModel()},
         phonetic = phonetic,
-        sourceUrls = sourceUrls,
         word = word,
     )
 
     fun toWordInfoEntity(): WordInfoEntity = WordInfoEntity(
         meanings = meanings.map {dto -> dto.toMeaningModel()},
         phonetic = phonetic,
-        sourceUrls = sourceUrls,
         word = word,
     )
 }
