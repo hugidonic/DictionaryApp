@@ -1,4 +1,4 @@
-package com.hugidonic.dictionaryapp.ui.theme
+package com.hugidonic.core.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
