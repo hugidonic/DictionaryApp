@@ -9,7 +9,6 @@ import com.hugidonic.feature_dictionary.domain.models.WordInfoModel
 data class WordInfoEntity(
     val meanings: List<MeaningModel>,
     val phonetic: String,
-    val sourceUrls: List<String>,
     val word: String,
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
@@ -17,7 +16,6 @@ data class WordInfoEntity(
     fun toWordInfoModel(): WordInfoModel = WordInfoModel(
         meanings = meanings,
         phonetic = phonetic,
-        sourceUrls = sourceUrls,
         word = word,
     )
 }
