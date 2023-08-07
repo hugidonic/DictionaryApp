@@ -50,6 +50,11 @@ class WordInfoModule {
             .build()
     }
 
+    @Provides
+    @Singleton
+    fun provideWordInfoDao(db: WordInfoDatabase): WordInfoDao {
+        return db.wordInfoDao
+    }
 
     @Provides
     @Singleton
