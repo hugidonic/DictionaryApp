@@ -1,6 +1,6 @@
 package com.hugidonic.feature_dictionary.data.repository
 
-import com.hugidonic.core.util.Resource
+import com.hugidonic.core.Resource
 import com.hugidonic.feature_dictionary.data.local.WordInfoDao
 import com.hugidonic.feature_dictionary.data.remote.DictionaryApiService
 import com.hugidonic.feature_dictionary.domain.models.WordInfoModel
