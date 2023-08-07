@@ -1,6 +1,7 @@
 package com.hugidonic.dictionaryapp
 
+import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class DictionaryApp
+class DictionaryApp: Application()
