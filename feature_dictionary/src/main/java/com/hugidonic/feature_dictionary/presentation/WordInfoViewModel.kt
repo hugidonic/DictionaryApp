@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hugidonic.core.util.Resource
+import com.hugidonic.core.Resource
 import com.hugidonic.feature_dictionary.domain.usecases.GetWordInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -24,6 +24,9 @@ class WordInfoViewModel @Inject constructor(
     private val _searchQuery = mutableStateOf<String>("")
     val searchQuery: State<String> = _searchQuery
 
+    private val _lastQueries = mutableListOf<String>("Hello")
+    val lastQueries: List<String> = _lastQueries
+
     private val _state = mutableStateOf<WordInfoState>(WordInfoState())
     val state: State<WordInfoState> = _state
 
@@ -31,6 +34,7 @@ class WordInfoViewModel @Inject constructor(
     val eventFlow = _eventFlow.asSharedFlow()
 
     private var searchJob: Job? = null
+
 
     fun onSearch(query: String) {
         _searchQuery.value = query
@@ -45,6 +49,7 @@ class WordInfoViewModel @Inject constructor(
                                 wordInfos = result.data ?: emptyList(),
                                 isLoading = false,
                             )
+                            _lastQueries.add(query)
                         }
                         is Resource.Error -> {
                             _state.value = _state.value.copy(
